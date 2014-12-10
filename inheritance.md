@@ -27,8 +27,8 @@ int main(){
 // D is derived from B
 B* base = new D;
 ```
-During **compile time**, base is a B pointer. 
-During **runtime**, base is a D pointer. 
+During **compile time**, base is a B pointer.  
+During **runtime**, base is a D pointer.  
 Static type is fixed during declaration, while dynamic type can be determined during runtime. For example,
 ```cpp
 // someFunction() can return *D, *E, or *F
