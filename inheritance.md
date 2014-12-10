@@ -1,5 +1,5 @@
 ###**Inheritance**
-Polymorphism is the provision of a **single interface** to entities of different types.
+Polymorphism is the provision of a **single interface** to entities of different types.  
 Inheritance is one of the many ways to realize polymorphism. It's essentially about creating a derived class from a base class.
 
 ####**There are 2 kinds of inheritance.**
@@ -37,9 +37,9 @@ base = someFunction();
 ```
 
 ####**"Pure"**
-Pure virtual functions in the base class:
-1. Don't have to be implemented. 
-2. Must be implemented by derived class.
+Pure virtual functions in the base class:  
+1. Don't have to be implemented.  
+2. Must be implemented by derived class.  
 ```cpp
 class Shape{
 public:
