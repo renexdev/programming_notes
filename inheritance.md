@@ -17,7 +17,8 @@ public:
 int main(){
 	Cow cow1;
 	Werecow wcow1;
-	wcow1.shout(); // This one doesn't involve virtual. Even if you take out the virtual keyword in Cow,  it would still work.
+	wcow1.shout(); // This one doesn't involve virtual. 
+	               // Even if you take out the virtual keyword in Cow,  it would still work.
 	Cow* cow2 = new Werecow;
 	cow2.shout(); // This one involves virtual. 	
 }
@@ -97,7 +98,7 @@ int main(){
     return 0;
 }
 ```
-Destructors, on the other hand, can be overridden. This is because a derived destructor may need to clean up some member variables that are not in the base class. The derived destructor is first called, then the base destructor.
+Destructors, on the other hand, can be overridden. This is because a derived destructor may need to clean up some member variables that are not in the base class.
 
 ####**Object Slicing**
 This will happen when you copy a derived object to a base object. The base object will lose the information from the derived class. Look at the following example.
@@ -136,3 +137,26 @@ int main(){
     return 0;
 }
 ```
+####**Multiple Inheritance**
+```cpp
+class B1{
+public:
+    B1(){ cout << "B1" << endl; }
+};
+
+class B2{
+public:
+    B2(){ cout << "B2" << endl; }
+};
+
+class D: public B1, public B2{
+public:
+    D(){ cout << "D" << endl; }
+};
+
+int main(){
+    D d1;
+    return 0; // Output: B1 B2 D
+}
+```
+In case of Multiple Inheritance, constructors of base classes are always called in derivation order **from left to right** and Destructors are called in reverse order.
