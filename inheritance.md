@@ -98,3 +98,41 @@ int main(){
 }
 ```
 Destructors, on the other hand, can be overridden. This is because a derived destructor may need to clean up some member variables that are not in the base class. The derived destructor is first called, then the base destructor.
+
+####**Object Slicing**
+This will happen when you copy a derived object to a base object. The base object will lose the information from the derived class. Look at the following example.
+```cpp
+struct Cow{
+    virtual void speak(){
+        cout << "Moo." << endl;
+    }
+};
+
+struct Werecow: public Cow{
+    bool transformed;
+    virtual void speak(){
+        if(transformed) cout << "Aaooooh!" << endl;
+        else cout << "Moo." << endl;
+    }
+};
+
+int main(){
+
+    Cow cow1;
+    cow1.speak(); // Moo.
+
+    Werecow wcow1;
+    wcow1.transformed = true;
+    wcow1.speak(); // Aaooooh!
+	
+    // cow2 has been "sliced", so it goes back to using Cow's shout()
+    Cow cow2 = wcow1;
+    cow2.speak(); // Moo.
+    
+    // &cow3 just points to wcow1, so cow3 can access Werecow's shout() during runtime 
+    Cow &cow3 = wcow1;
+    cow3.speak(); // Aaooooh!
+
+    return 0;
+}
+```
