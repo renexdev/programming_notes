@@ -27,7 +27,7 @@ Output: Inside Q.
 There's no print() in R, so r starts looking up, and find print() in Q.  
 If, again, there's no print() in Q, then it'll call the one in P.
 
-2. 
+####**2. Virtual Function in a Constructor**
 ```cpp
 class Base{
 public:
