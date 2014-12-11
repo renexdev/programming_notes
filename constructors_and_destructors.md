@@ -71,3 +71,5 @@ int main(){
     return 0;
 }
 ```
+####**When do we need to write user-defined destructors?**
+When our class has dynamically allocated memory or pointer. We'd want to release the memory in our destructor.
