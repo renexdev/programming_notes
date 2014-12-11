@@ -2,8 +2,7 @@
 
 ####**Copy Constructor**
 There's a default copy constructor in your class.
-You don't need to to explicitly create one **unless** your class contains member variables that are pointers, and you want to
-achieve **deep copy**.  
+You don't need to explicitly create a copy constructor **unless** your class contains member variables that are pointers, and you want to achieve **deep copy**.  
 Here's an example: the output will be different if the copy constructor is removed.
 ```cpp
 class Hero{
@@ -39,6 +38,32 @@ int main(){
     // This is because if we don't specifically make hero2 copy the content of *m_HP with
     // our own copy constructor, the default copy constructor will merely copy the pointer itself,
     // thus create a shallow copy of hero1.
+
+    return 0;
+}
+```
+Beware, the argument passing to copy constructor has to be const reference.
+
+####**Copy Constructor v.s. Assignment Operator**
+They both achieve similar effects, but are different stuff. See below:
+```cpp
+class Hero{
+private:
+    int HP;
+public:
+    Hero(){}
+    Hero(int in_HP): HP(in_HP){}
+    void printHP(){ cout << HP << endl; }
+};
+
+int main(){
+    Hero h1(100);
+    Hero h2 = h1; // This calls (default) copy constructor
+    Hero h3;
+    h3 = h1; // This calls (default) assignment operator
+
+    h2.printHP();
+    h3.printHP();
 
     return 0;
 }
