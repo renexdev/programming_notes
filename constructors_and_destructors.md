@@ -3,7 +3,8 @@
 ####**Copy Constructor**
 There's a default copy constructor in your class.
 You don't need to to explicitly create one **unless** your class contains member variables that are pointers, and you want to
-achieve **deep copy**. Here's an example: the output will be different if the copy constructor is removed.
+achieve **deep copy**.  
+Here's an example: the output will be different if the copy constructor is removed.
 ```cpp
 class Hero{
 public:
