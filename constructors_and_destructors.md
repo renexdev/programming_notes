@@ -34,8 +34,11 @@ int main(){
     
     hero1.print();
     hero2.print();
-    // If we keep the copy constructor, output will be 10 5
-    // If we remove the copy constructor, output will be 5 5, which is not desirable
+    // If we keep the copy constructor, output will be 10 5 (deep copy)
+    // If we remove the copy constructor, output will be 5 5
+    // This is because if we don't specifically make hero2 copy the content of *m_HP with
+    // our own copy constructor, the default copy constructor will merely copy the pointer itself,
+    // thus create a shallow copy of hero1.
 
     return 0;
 }
