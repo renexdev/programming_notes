@@ -71,5 +71,26 @@ int main(){
     return 0;
 }
 ```
-####**When do we need to write user-defined destructors?**
+####**When do we need to write a user-defined destructor?**
 When our class has dynamically allocated memory or pointer. We'd want to release the memory in our destructor.
+
+####**Conversion Constructor**
+If a class has a constructor that takes a single argument, then we can use it as a "conversion constructor". It's just some syntax sugar.
+```cpp
+class Girl{
+private:
+    int age;
+public:
+    Girl(){}
+    Girl(int in_age): age(in_age){}
+    void printAge(){ cout << age << endl; }
+};
+
+int main(){
+    Girl Cindy(17); // This is the usual way
+    Girl Kate = 18; // Here we use is as a conversion constructor
+    Kate.printAge(); // Output: 18
+    
+    return 0;
+}
+```
