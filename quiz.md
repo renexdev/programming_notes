@@ -20,5 +20,5 @@ int main(){
     return 0;
 }
 ```
-Output: 10 20 30.
+Output: 10 20 30.  
 Beware that ::i will simply call the global variable.
