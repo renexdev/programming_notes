@@ -56,7 +56,7 @@ int main(){
   return 0;
 }
 ```
-Output: Base Function.
+Output: Base Function.  
 If:  
 1. The virtual function is called inside the constructor or destructor  
 2. The object the under construction  
