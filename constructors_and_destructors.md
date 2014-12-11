@@ -1,5 +1,8 @@
 ###**Constructors & Destructors**
 
+####**Does compiler create default constructor when we define our own?**
+No. So always remember to include a default one.
+
 ####**Copy Constructor**
 There's a default copy constructor in your class.
 You don't need to explicitly create a copy constructor **unless** your class contains member variables that are pointers, and you want to achieve **deep copy**.  
