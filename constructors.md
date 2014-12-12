@@ -94,3 +94,5 @@ int main(){
     return 0;
 }
 ```
+####**Initializer List**
+Use initializer list when we want to initialize (non-static) const objects or reference objects.
