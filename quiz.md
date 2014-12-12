@@ -35,6 +35,6 @@ int main(){
     return 0;
 }
 ```
-Output: <nothing>.
+Output: (nothing).  
 Test t1() is not calling the default constructor of Test at all.  
 Compiler will interpret this as declaring a function "t1()" that returns a Test object.
