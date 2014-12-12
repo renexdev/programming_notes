@@ -1,8 +1,8 @@
 ###**Static**
-This keyword has 3 different usages in C++:  
-1. Used inside a *function*.
-2. Used inside a *class*.
-3. Used inside a file as a *global variable*.
+This keyword has 3 different usages in C++:   
+1. Used inside a *function*.  
+2. Used inside a *class*.  
+3. Used inside a file as a *global variable*.  
 In any case, static variable always has to be defined **before main()**.
 
 ####**1. Uses inside a function**
@@ -64,7 +64,7 @@ int main(){
 ```
 Output: 3 100
 **Non-const static** data member has to be defined **outside the class** using scope resolution operator.  
-Const static data member can be defined inside the class.
+Const static data member can be defined inside the class.  
 Why do we need this? For example, your class may need to keep track of how many instances of this class there are; a static counter variable is useful in this case.
 
 ####**3. Used inside a File as a Global Variable**
