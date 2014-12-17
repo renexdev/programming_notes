@@ -162,6 +162,6 @@ int main(){
 In case of Multiple Inheritance, constructors of base classes are always called in derivation order **from left to right** and Destructors are called in reverse order.
 
 ####**Overloading v.s. Overriding**
-THey are different concepts.  
+They are different concepts.  
 Overloading: same function name, different arguments. (This has nothing to do with inheritance.)  
 Overriding: same function name, same arguemnts. Used in derived class.  
