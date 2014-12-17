@@ -62,7 +62,7 @@ int main(){
    return 0;
 }
 ```
-Output: 3 100
+Output: 3 100  
 **Non-const static** data member has to be defined **outside the class** using scope resolution operator.  
 Const static data member can be defined inside the class.  
 Why do we need this? For example, your class may need to keep track of how many instances of this class there are; a static counter variable is useful in this case.
