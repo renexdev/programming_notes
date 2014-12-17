@@ -59,6 +59,6 @@ int main(){
 Output: Base Function.  
 If:  
 1. The virtual function is called inside the constructor or destructor  
-2. The object the under construction  
+2. The object is under construction  
 then the function called will be the one in its own class, not the one overriding it.  
 It is generally recommended that don't call a virtual function inside constructor or destructor.
