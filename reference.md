@@ -34,6 +34,7 @@ By making the operator () return by reference, we can directly modify values in 
 1. A pointer can be declared without pointing to anything; a reference has to bind to another object.  
 2. A pointer can be reassigned; a reference cannot be reassigned.  
 3. There's no "reference arithmetics".  
+
 Rule of thumb:  
 Use references in function parameters and return types.  
 Use pointers in data structure and algorithm implementation.
