@@ -9,6 +9,7 @@ It's  similar to the "diff" tool:
 diff -u <file 1> <file 2>
 ```
 But git diff is for comparing 2 versions of the same file.  
+  
 To get color output,
 ```cpp
 git config --global color.ui auto
