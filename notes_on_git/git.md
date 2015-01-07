@@ -2,7 +2,7 @@
 
 ####**Compare 2 commits**
 ```cpp
-git diff <commit id 1> <commit id 2>
+git diff <commit ID 1> <commit ID 2>
 ```
 It's  similar to the "diff" tool:
 ```cpp
@@ -15,6 +15,12 @@ To get color output,
 git config --global color.ui auto
 ```
 
-####Keeps commits short, but not one-line-change short.
+####**Keeps commits short, but not one-line-change short.**
 A good rule of thumb is to make *one commit per logical change*.  
 For example, if you fixed a typo, then fixed a bug in a separate part of the file, you should use one commit for each change since they are logically separate.
+
+####**Checkout a previous commit**
+```cpp
+git checkout <commit ID>
+```
+We can use this for debugging.
