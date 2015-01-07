@@ -8,7 +8,11 @@ It's  similar to the "diff" tool:
 ```cpp
 diff -u <file 1> <file 2>
 ```
-But git diff is for comparing 2 versions of the same file.
+But git diff is for comparing 2 versions of the same file.  
+To get color output,
+```cpp
+git config --global color.ui auto
+```
 
 ####Keeps commits short, but not one-line-change short.
 A good rule of thumb is to make *one commit per logical change*.  
