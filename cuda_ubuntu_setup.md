@@ -73,4 +73,5 @@ nvcc -I/usr/local/cuda/include -L/usr/local/cuda/lib cubeNumber.cu -o cubeNumber
 ```
 
 References:  
-[NVIDIA CUDA Getting Started Guide for Linux](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#introduction)
+[Official NVIDIA guide for CUDA on Linux.](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#introduction)  
+[A more thorough walkthrough on installing CUDA.](http://askubuntu.com/questions/451672/installing-and-testing-cuda-in-ubuntu-14-04)
