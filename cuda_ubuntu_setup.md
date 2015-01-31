@@ -11,8 +11,10 @@ export LD_LIBRARY_PATH=/usr/local/cuda-6.5/lib64:$LD_LIBRARY_PATH
 
 
 Check if it's working.
+```bash
 cuda-install-samples-6.5.sh  ~ 
 cd ~/NVIDIA_CUDA-6.5_Samples 
 make
+```
 
 Now run deviceQuery.
