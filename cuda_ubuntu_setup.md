@@ -72,3 +72,5 @@ To compile it, use the following command.
 nvcc -I/usr/local/cuda/include -L/usr/local/cuda/lib cubeNumber.cu -o cubeNumber
 ```
 
+References: 
+[NVIDIA CUDA Getting Started Guide for Linux](http://docs.nvidia.com/cuda/cuda-getting-started-guide-for-linux/#introduction)
