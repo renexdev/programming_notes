@@ -16,6 +16,6 @@ Some of the parameters that can be accessed in a kernel:
 `blockDim`: the size of the current block.  
 `blockIdx`: the ID of the current block.  
 `gridDim`: the size of the entire grid.  
-All of them have `.x`, `.y`, and `.z` members. For example, in `square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in)`, 
-`gridDim.y` = 4, and `blockDim.z` = 0.
+All of them have `.x`, `.y`, and `.z` members.  
+For example, in `square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in)`, `gridDim.y` = 4, and `blockDim.z` = 0.
 
