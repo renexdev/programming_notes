@@ -12,9 +12,12 @@ square<<<dim3(1), dim3(64)>>>(d_out, d_in);
 square<<<dim3(1,1,1), dim3(64,1,1)>>>(d_out, d_in);
 ```
 Some of the parameters that can be accessed in a kernel:  
->`threadIdx`: the ID of the current thread in a particular block.  
->`blockDim`: the size of the current block.  
-
->`blockIdx`: the ID of the current block.  
->`gridDim`: the size of the entire grid.  
-All of them have `.x`, `.y`, and `.z` members. So for example, `threadIdx.y` is the y location of the thread.
+`threadIdx`: the ID of the current thread in a particular block.  
+`blockDim`: the size of the current block.  
+`blockIdx`: the ID of the current block.  
+`gridDim`: the size of the entire grid.  
+All of them have `.x`, `.y`, and `.z` members. The naming is a bit confusing, so here's an example:  
+```c
+square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in);
+```
+`threadIdx.y` = 16
