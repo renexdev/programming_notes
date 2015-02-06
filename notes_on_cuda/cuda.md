@@ -1,4 +1,4 @@
-####**Congiguring the Kernel Launch**
+####**Configuring the Kernel Launch**
 ```c
 square<<<dim3(bx,by,bz), dim3(tx,ty,tz)>>>(d_out, d_in);
 ```
