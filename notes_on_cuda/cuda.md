@@ -19,3 +19,8 @@ Some of the parameters that can be accessed in a kernel:
 All of them have `.x`, `.y`, and `.z` members.  
 For example, in `square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in)`, `gridDim.y` = 4, and `blockDim.z` = 0.
 
+####**Map, Gather & Scatter**
+These are different types of operations:  
+**Map**: The input index and the output index are the same.  
+**Gather**: The input index has to be calculated by the thread.  
+**Scatter**: The output index has to be calculated by the thread.
