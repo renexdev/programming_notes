@@ -15,6 +15,18 @@ var email = "jasonfly07@yahoo.com";
 var newEmail = email.replace("yahoo","gmail"); 
 // newEmail is "jasonfly07@gmail.com"
 ```
+**Array manipulation**
+```js
+var arr1 = [1,2,3];
+var arr2 = [11,12,13];
+
+// Append an item to the end of an array
+arr1.push(4);      // arr1 is now [1,2,3,4]
+
+// Append another array to the end of an array
+arr1.concat(arr2); // arr2 is now [1,2,3,4,11,12,13]
+```
+
 **"True & false variables"**
 
 | Evaluate to true | Evaluate to false |
