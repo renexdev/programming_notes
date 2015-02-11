@@ -24,4 +24,7 @@ var newEmail = email.replace("yahoo","gmail");
 | "strings" | "" |
 | objects | undefined |
 | arrays | null |
-| functions | NaN  |
+| functions | NaN  |  
+`[false]` is true, since it's an array with one element.  
+`{"state":false}` is also true, since it's an object with a property called "state".  
+Dont't be misled by the use of `false` keyword.
