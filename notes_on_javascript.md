@@ -14,6 +14,13 @@ var b = "hello";
 var email = "jasonfly07@yahoo.com";
 var newEmail = email.replace("yahoo","gmail"); 
 // newEmail is "jasonfly07@gmail.com"
+var emailArr = email.split("@");
+// emailArr is ["jasonfly07","gmail.com"]
+```
+```js
+var str1 = "AbcDe";
+var str2 = str1.substring(1,3); // str2 is "bc"
+var str3 = str1.toUpperCase();  // str3 is "ABCDE"
 ```
 **Array manipulation**
 ```js
