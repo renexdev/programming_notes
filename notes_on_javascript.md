@@ -17,7 +17,7 @@ var newEmail = email.replace("yahoo","gmail");
 ```
 **"True & false variables"**
 
-| Trusy | Falsy |
+| Evaluate to true | Evaluate to false |
 |-------|-------|
 | true  | false |
 | non-zero numbers | 0 |
