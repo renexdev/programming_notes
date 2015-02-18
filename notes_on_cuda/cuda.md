@@ -40,3 +40,12 @@ if(i % 2){
 }                                                   // Neither of the above two is stencil, since
                                                     // stencil requires every element to have a result.
 ```
+####**GPU Hardware**  
+We already know from the programming model that **thread blocks** are 
+group of threads that *cooperate* to solve a (sub)problem.  
+A GPU is composed of a number of **streaming multi-processors** (**SM**).  
+An SM consists of many simple processors and memory.  
+This is important:  
+>A **programmer** is responsible for **defining** thread blocks in software.  
+>A **GPU** is responsible for **allocating** thread blocks to hardware SMs.   
+
