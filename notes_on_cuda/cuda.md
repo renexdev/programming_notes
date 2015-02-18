@@ -23,4 +23,6 @@ For example, in `square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in)`, `gridDim.y`
 These are different types of communication patterns:  
 **Map**: The input index and the output index are the same.  
 **Gather**: The input index has to be calculated by the thread.  
-**Scatter**: The output index has to be calculated by the thread.
+**Scatter**: The output index has to be calculated by the thread.  
+**Stencil**: Tasks read input from a fixed neighborhood in an array.  
+**Transpose**:  Tasks re-order data elements in memory.
