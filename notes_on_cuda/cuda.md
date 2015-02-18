@@ -77,3 +77,15 @@ What CUDA **does** guarantee are:
 All threads in a block run on the same SM at the same time.  
 All blocks in a kernel finish before any blocks from the next kernel runs.  
 
+####**GPU Memory Model*
+Each thread has access to **local memory**.  
+All the threads in the same block have access to **shared memory**.  
+All the kernels have access to **global memory**.
+
+####**Synchronization**  
+Threads can access each other's results through shared & global memory, thus work together!  
+But what if a thread reads a result before another thread writes it?  
+Threads need to **synchronize**!  
+We can set up a barrier in the program, where all the threads stop and wait. When all the threads reach the barrier, they can then proceed.  
+
+
