@@ -77,7 +77,7 @@ What CUDA **does** guarantee are:
 All threads in a block run on the same SM at the same time.  
 All blocks in a kernel finish before any blocks from the next kernel runs.  
 
-####**GPU Memory Model*
+####**GPU Memory Model**
 Each thread has access to **local memory**.  
 All the threads in the same block have access to **shared memory**.  
 All the kernels have access to **global memory**.
