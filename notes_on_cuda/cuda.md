@@ -24,7 +24,7 @@ These are different types of communication patterns:
 **Map**: The input index and the output index are the same.  
 **Gather**: The input index has to be calculated by the thread.  
 **Scatter**: The output index has to be calculated by the thread.  
-**Stencil**: Tasks read input from a fixed neighborhood in an array.  
+**Stencil**: Tasks read input from a fixed neighborhood in an array. **Should generate a result for every element in the array.**  
 **Transpose**:  Tasks re-order data elements in memory.  
 See the following codes for some examples:  
 ```cpp
@@ -32,10 +32,11 @@ float out[], in[];
 int i = threadIdx.x;
 int j = threadIdx.y;
 const float pi = 3.1415;
-out[i] = pi * in[i];
-out[i + j*128] = in[j + i*128];
+out[i] = pi * in[i];                                    // This is map
+out[i + j*128] = in[j + i*128];                         // This is transpose
 if(i % 2){
-  output[i-1] += pi * in[i]; output[i+1] += pi * in[i];
-  out[i] = (in[i-1] + in[i] + in[i+1]) * pi / 3.0f;
-}
+  output[i-1] += pi * in[i]; output[i+1] += pi * in[i]; // This is scatter
+  out[i] = (in[i-1] + in[i] + in[i+1]) * pi / 3.0f;     // This is gather 
+}                                                       // Neither of the above two is stencil, since
+                                                        // stencil requires every element to have a result.
 ```
