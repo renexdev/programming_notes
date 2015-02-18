@@ -41,11 +41,17 @@ if(i % 2){
                                                     // stencil requires every element to have a result.
 ```
 ####**GPU Hardware**  
-We already know from the programming model that **thread blocks** are 
-group of threads that *cooperate* to solve a (sub)problem.  
 A GPU is composed of a number of **streaming multi-processors** (**SM**).  
 An SM consists of many simple processors and memory.  
-This is important:  
->A **programmer** is responsible for **defining** thread blocks in software.  
->A **GPU** is responsible for **allocating** thread blocks to hardware SMs.   
+  
+A **programmer** is responsible for **defining** thread blocks in software.  
+A **GPU** is responsible for **allocating** thread blocks to hardware SMs.   
+  
+All the threads in a thread block may cooperate to solve a sub-problem.  
+All the threads in the same SM **cannot** cooperate to solve a sub-problem. (Because they are on different blocks!)
+
+A programmer **cannot** specify whether block X runs before, after, or alongside block Y.  
+A programmer **cannot** specify which SM block X will be allocated to.  
+In other words, CUDA makes few guarantees about **when & where** a block will run. This is an advantage of CUDA that ensures efficiency & scalability.  
+
 
