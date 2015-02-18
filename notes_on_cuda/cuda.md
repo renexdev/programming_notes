@@ -19,12 +19,12 @@ Some of the parameters that can be accessed in a kernel:
 All of them have `.x`, `.y`, and `.z` members.  
 For example, in `square<<<dim3(8,4,2), dim3(16,16)>>>(d_out, d_in)`, `gridDim.y` = 4, and `blockDim.z` = 0.
 
-####**Map, Gather & Scatter**
+####**Communication Patterns**
 These are different types of communication patterns:  
 **Map**: The input index and the output index are the same.  
 **Gather**: The input index has to be calculated by the thread.  
 **Scatter**: The output index has to be calculated by the thread.  
-**Stencil**: Tasks read input from a fixed neighborhood in an array. **Should generate a result for every element in the array.**  
+**Stencil**: Tasks read input from a fixed neighborhood in an array. *Should generate a result for every element in the array.*  
 **Transpose**:  Tasks re-order data elements in memory.  
 See the following codes for some examples:  
 ```cpp
@@ -73,4 +73,7 @@ int main(int argc,char **argv){
     return 0;
 }
 ```
+What CUDA **does** guarantee are:  
+All threads in a block run on the same SM at the same time.  
+All blocks in a kernel finish before any blocks from the next kernel runs.  
 
