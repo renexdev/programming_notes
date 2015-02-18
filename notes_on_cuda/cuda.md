@@ -53,5 +53,24 @@ All the threads in the same SM **cannot** cooperate to solve a sub-problem. (Bec
 A programmer **cannot** specify whether block X runs before, after, or alongside block Y.  
 A programmer **cannot** specify which SM block X will be allocated to.  
 In other words, CUDA makes few guarantees about **when & where** a block will run. This is an advantage of CUDA that ensures efficiency & scalability.  
+  
+For example, if we launch the following kernel with 16 blocks and 1 thread per block, there're totally **16!**(~21 trillion) kinds of output. They are totally random.  
+```cpp
+#define NUM_BLOCKS 16
+#define BLOCK_WIDTH 1
 
+__global__ void hello(){
+    printf("Hello world! I'm a thread in block %d\n", blockIdx.x);
+}
+
+int main(int argc,char **argv){
+    // launch the kernel
+    hello<<<NUM_BLOCKS, BLOCK_WIDTH>>>();
+
+    // force the printf()s to flush
+    cudaDeviceSynchronize();
+
+    return 0;
+}
+```
 
