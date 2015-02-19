@@ -87,6 +87,17 @@ Threads can access each other's results through shared & global memory, thus wor
 But what if a thread reads a result before another thread writes it?  
 Threads need to **synchronize**!  
 We can set up a **barrier** in the program, where all the threads stop and wait. When all the threads reach the barrier, they can then proceed. Here's the call:  
-`__syncthreads();`
+`__syncthreads();`  
+BTW, there's an implicit barrier between different kernel calls; once kernel A is finished, kernel B starts.  
+
+####**How to Write Efficient Parallel Programs?**  
+One way is to **maximize arithmetic intensity**.  
+Arithmetic intensity = math/memory, so we either maximize work (compute operations) per thread, or minimize time spent on memory per thread.  
+We can minimize time spent on memory by moving frequently-accessed data to *fast memory*.  
+Speed of memory is: **local > shared >> global >> CPU memory (host)**.  
+  
+Another way is using **coalesced** global memory access. GPU is most efficient when threads read or write  **contiguous memory location**.
+
+
 
 
