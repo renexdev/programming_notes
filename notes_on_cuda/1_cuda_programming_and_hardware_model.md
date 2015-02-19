@@ -86,6 +86,7 @@ All the kernels have access to **global memory**.
 Threads can access each other's results through shared & global memory, thus work together!  
 But what if a thread reads a result before another thread writes it?  
 Threads need to **synchronize**!  
-We can set up a barrier in the program, where all the threads stop and wait. When all the threads reach the barrier, they can then proceed.  
+We can set up a **barrier** in the program, where all the threads stop and wait. When all the threads reach the barrier, they can then proceed. Here's the call:  
+`__syncthreads();`
 
 
