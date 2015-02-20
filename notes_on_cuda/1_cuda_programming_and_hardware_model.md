@@ -98,6 +98,17 @@ Speed of memory is: **local > shared >> global >> CPU memory (host)**.
   
 Another way is using **coalesced** global memory access. GPU is most efficient when threads read or write  **contiguous memory location**.
 
+####**Atomic Operation**  
+Imagine we have 10,000 threads trying to increment (which involves reading and writing) 10 array elements. Because there might be multiple threads trying to read and write the same element simultaneously, the end result will be random.  
+We could mitigate this problem by setting up barriers, but there's a more efficient approach.  
+Solution: **atomic memory operation,** such as `atomicAdd()`, `atomicXOR()`, or `atomicCAS()`(compare-and-swap).  
+Atomic operations take more time, but ensure that only one thread is accessing an element at a time.  
+####**Limitations of Atomic Operations**  
+ 1. Only supports **certain actions and data types** (mostly int). There's a workaround to this by using `atomicCAS()`.  
+ 2. Still **no ordering constraints**. This is a problem for floating-point operations, since floating-point arithmetic is non-associative. Namely, (a+b)+c != a+(b+c) for float.  
+ 3. Serializes access to memory, which means **slow**.  
+
+
 
 
 
