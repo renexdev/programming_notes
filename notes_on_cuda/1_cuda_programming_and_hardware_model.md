@@ -95,8 +95,8 @@ One way is to **maximize arithmetic intensity**.
 Arithmetic intensity = math/memory, so we either maximize work (compute operations) per thread, or minimize time spent on memory per thread.  
 We can minimize time spent on memory by moving frequently-accessed data to *fast memory*.  
 Speed of memory is: **local > shared >> global >> CPU memory (host)**.  
-  
-Another way is using **coalesced** global memory access. GPU is most efficient when threads read or write  **contiguous memory location**.
+We should also try to use **coalesced** global memory access. GPU is most efficient when threads read or write  **contiguous memory location**.  
+Also, **avoid divergent threads**. This means minimizing the use of `if-else` or loops that depend on thread ID.  
 
 ####**Atomic Operation**  
 Imagine we have 10,000 threads trying to increment (which involves reading and writing) 10 array elements. Because there might be multiple threads trying to read and write the same element simultaneously, the end result will be random.  
