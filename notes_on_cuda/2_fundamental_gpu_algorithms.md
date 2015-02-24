@@ -7,13 +7,7 @@ Reduce has 2 inputs: **sets of elements** and a **reduction operator**.
 For example, Reduce[(1,2,3,4),'+']=10.  
 The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `min(a,b)` are ok, but `pow(a,b)`, `a/b` are not.)  
 
-If we are summing up n elements, the serial reduce looks like this:  
-```cpp
-int sum = 0;
-for(int i=0; i<a.size(); i++){
-  sum += a[i];
-}
-```
-Pretty straightforward.  
-Both the number of steps and total amount of work are n-1, and the complexity is O(n).  
+**Serial reduce** is essentially ((a+b)+c)+d. Step complexity is O(n).  
+**Parallel reduce**, on the other hand, is (a+b)+(c+d), which means complexity is O(log(n)). (Summing up 1024 elements only requires 10 steps.)  
+
 
