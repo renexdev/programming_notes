@@ -20,4 +20,10 @@ There're 2 kinds of scan: *exclusive* & *inclusive*.
 Exclusive: (0,1,3,6). (The nth output excludes the nth input.)  
 Inclusive: (1,3,6,10).  
 **Serial scan** is, again, an O(n) operation, both in work and step.  
-**Paralell scan**
+**Paralell scan** is a bit more complicated.  
+
+####**Parallel Scan**  
+One way to perform scan(on an N-element array) is to run N reduce at the same time. For example, we run the Kth reduce from the 0th element to the (K-1)th element. This way:  
+Step: O(log(n)), since when analyzing algorithm complexity, we assume infinite GPU resources.  
+Work: O(n^2). Since the Kth reduce requires K operations, the sum of all operations is roughly 0.5*K^2.  
+
