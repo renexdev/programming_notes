@@ -3,8 +3,8 @@ When we talk abour algorithms, we deal with 2 costs: **step complexity** & **wor
 A parallel program is considered *efficient* (compared with serial implementation) if step complexity is reduced, while the overall work complexity is relatively the same.  
 
 ####**Reduce**  
-Reduce has 2 inputs: **sets of elements** and a **reduction operator**.  
-For example, Reduce[(1,2,3,4),'+']=10.  
+Any operation(reduce, scan, etc.) has 2 inputs: **an input array** and an **operator**.  
+For example, Reduce[(1,2,3,4),'+']=10. (1,2,3,4) is the array, and '+' is the operator.   
 The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `min(a,b)` are ok, but `pow(a,b)`, `a/b` are not.)  
 
 **Serial reduce** is essentially ((a+b)+c)+d. Step complexity is O(n).  
@@ -13,4 +13,7 @@ The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `mi
 See `reduce.cu` for the code snippets of reducing with globabl or shared memory.  
 In the above example, reducing with global memory uses 3 times more memory than the shared version.  
 
+####**Scan**  
+Here's an example of scan: Scan[(1,2,3,4),'+']=(1,3,6,10).(cumulative sum)  
+Though not obvious, it's very useful in parallel.  
 
