@@ -16,4 +16,6 @@ In the above example, reducing with global memory uses 3 times more memory than 
 ####**Scan**  
 Here's an example of scan: Scan[(1,2,3,4),'+']=(1,3,6,10).(cumulative sum)  
 Though not obvious, it's very useful in parallel.  
-
+There're 2 kinds of scan: exclusive & inclusive.  
+Exclusive: (0,1,3,6). (The nth output excludes the nth input.)  
+Inclusive: (1,3,6,10).  
