@@ -10,4 +10,7 @@ The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `mi
 **Serial reduce** is essentially ((a+b)+c)+d. Step complexity is O(n).  
 **Parallel reduce**, on the other hand, is (a+b)+(c+d), which means complexity is O(log(n)). (Summing up 1024 elements only requires 10 steps.)  
 
+See `reduce.cu` for the code snippets of reducing with globabl or shared memory.  
+In the above example, reducing with global memory uses 3 times more memory than the shared version.  
+
 
