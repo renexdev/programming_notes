@@ -41,5 +41,8 @@ The following is an example:
 Step: O(log(n)).  
 Work: O(nlog(n)).
 
+####**Blelloch Exclusive Scan**  
+See [this paper](http://www.cs.cmu.edu/~./blelloch/papers/Ble93.pdf) for a detailed explanation.  
 
-
+Step: O(log(n)).  
+Work: O(n). (This is good!)  
