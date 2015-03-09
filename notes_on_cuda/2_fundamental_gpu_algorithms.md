@@ -26,4 +26,20 @@ Inclusive: (1,3,6,10).
 One way to perform scan(on an N-element array) is to run N reduce at the same time. For example, we run the Kth reduce from the 0th element to the (K-1)th element. This way:  
 Step: O(log(n)), since when analyzing algorithm complexity, we assume infinite GPU resources.  
 Work: O(n^2). Since the Kth reduce requires K operations, the sum of all operations is roughly 0.5*K^2.  
+This is ridiculously inefficient, so we need some other approaches.  
+
+####**Hillis Steele Inclusive Scan**  
+**Starting with step 0. On step K, add yourself to your 2^K right neighbor.**  
+The following is an example:  
+
+|Original|1|2|3|4|5|6|7|8|
+|---|---|---|---|---|---|---|---|---|
+|After step 0|1|3|5|7|9|11|13|15|
+|After step 1|1|3|6|10|14|18|22|26|
+|After step 2|1|3|6|10|15|21|28|36|  
+
+Step: O(log(n)).  
+Work: O(nlog(n)).
+
+
 
