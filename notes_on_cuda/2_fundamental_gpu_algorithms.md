@@ -46,3 +46,9 @@ See [this paper](http://www.cs.cmu.edu/~./blelloch/papers/Ble93.pdf) for a detai
 
 Step: 2log(n).  
 Work: O(n). (This is good!)  
+
+####**Which Scan Should I Use?**  
+If there're **more work than processors**, pick the work effcient scan. (**Blelloch**)  
+If there're **more processors than work**, pick the step efficient scan. (**H/S**)  
+BTW, if there's only one processor, you have to use serial scan.  
+
