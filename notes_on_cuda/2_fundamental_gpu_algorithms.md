@@ -24,7 +24,7 @@ Inclusive: (1,3,6,10).
 
 ####**Parallel Scan**  
 One way to perform scan(on an N-element array) is to run N reduce at the same time. For example, we run the Kth reduce from the 0th element to the (K-1)th element. This way:  
-Step: O(log(n)), since when analyzing algorithm complexity, we assume infinite GPU resources.  
+Step: log(n), since when analyzing algorithm complexity, we assume infinite GPU resources.  
 Work: O(n^2). Since the Kth reduce requires K operations, the sum of all operations is roughly 0.5*K^2.  
 This is ridiculously inefficient, so we need some other approaches.  
 
@@ -38,11 +38,11 @@ The following is an example:
 |After step 1|1|3|6|10|14|18|22|26|
 |After step 2|1|3|6|10|15|21|28|36|  
 
-Step: O(log(n)).  
+Step: log(n).  
 Work: O(nlog(n)). (This is not good!)  
 
 ####**Blelloch Exclusive Scan**  
 See [this paper](http://www.cs.cmu.edu/~./blelloch/papers/Ble93.pdf) for a detailed explanation.  
 
-Step: O(log(n)). (There're actually twice the steps more than H/S.)  
+Step: 2log(n).  
 Work: O(n). (This is good!)  
