@@ -44,5 +44,5 @@ Work: O(nlog(n)). (This is not good!)
 ####**Blelloch Exclusive Scan**  
 See [this paper](http://www.cs.cmu.edu/~./blelloch/papers/Ble93.pdf) for a detailed explanation.  
 
-Step: O(log(n)). (There're actually twice the steps more than H/S.) 
+Step: O(log(n)). (There're actually twice the steps more than H/S.)  
 Work: O(n). (This is good!)  
