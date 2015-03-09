@@ -39,10 +39,10 @@ The following is an example:
 |After step 2|1|3|6|10|15|21|28|36|  
 
 Step: O(log(n)).  
-Work: O(nlog(n)).
+Work: O(nlog(n)). (This is not good!)  
 
 ####**Blelloch Exclusive Scan**  
 See [this paper](http://www.cs.cmu.edu/~./blelloch/papers/Ble93.pdf) for a detailed explanation.  
 
-Step: O(log(n)).  
+Step: O(log(n)). (There're actually twice the steps more than H/S.) 
 Work: O(n). (This is good!)  
