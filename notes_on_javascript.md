@@ -8,6 +8,11 @@ console.log("hello world");
 confirm("pop-up messgae!");
 ```
 
+**Prompt input from the user**:  
+```js
+prompt("What is your name?");
+```
+
 **Variables**
 ```js
 var a = 10;
