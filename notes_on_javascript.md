@@ -3,6 +3,11 @@
 console.log("hello world");
 ```
 
+**Display a pop-up window**:  
+```js
+confirm("pop-up messgae!");
+```
+
 **Variables**
 ```js
 var a = 10;
@@ -19,6 +24,7 @@ var emailArr = email.split("@");
 ```
 ```js
 var str1 = "AbcDe";
+var len1 = str1.length;         // len1 = 5 
 var str2 = str1.substring(1,3); // str2 is "bc"
 var str3 = str1.toUpperCase();  // str3 is "ABCDE"
 ```
