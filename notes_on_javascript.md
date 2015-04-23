@@ -10,7 +10,7 @@ confirm("pop-up messgae!");
 
 **Prompt input from the user**:  
 ```js
-prompt("What is your name?");
+var age = prompt("What is your age?");
 ```
 
 **Variables**
@@ -58,3 +58,11 @@ arr1.concat(arr2); // arr2 is now [1,2,3,4,11,12,13]
 `[false]` is true, since it's an array with one element.  
 `{"state":false}` is also true, since it's an object with a property called "state".  
 Dont't be misled by the use of `false` keyword.
+
+**Functions**  
+Functions in JavaScript looks like this:  
+```js
+var printName = function(name){
+    console.log(name);
+}
+```
