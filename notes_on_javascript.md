@@ -77,7 +77,7 @@ console.log(arr);    // ['hello','world',1,2,3]
 var jagged = [[1,2,3],[true,false],"hello"]; // rows can have different length
 ```
 
-**Objects**
+**Objects**  
 Objects in JS are kind of like structs in Matlab.  
 We can create an object by listing it out:  
 ```js
