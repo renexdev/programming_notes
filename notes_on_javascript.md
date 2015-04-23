@@ -66,3 +66,30 @@ var printName = function(name){
     console.log(name);
 }
 ```
+
+**Array**  
+Array (or list) in JS can store different datatypes.  
+```js
+var arr = ["hello","world",1,2,3];  
+console.log(arr[1]); // world
+console.log(arr);    // ['hello','world',1,2,3]
+
+var jagged = [[1,2,3],[true,false],"hello"]; // rows can have different length
+```
+
+**Objects**
+Objects in JS are kind of like structs in Matlab.  
+We can create an object by listing it out:  
+```js
+//
+var character = {
+    name: "Biscuit",
+    age: 57;
+}
+```
+Or use an object constructor:
+```js
+var character = new Object();
+character.name = "Biscuit";
+character.age = 57;
+```
