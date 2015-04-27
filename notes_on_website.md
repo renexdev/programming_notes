@@ -39,3 +39,13 @@ Everything inside a website is inside `<html>`.
   </body>
 </html>
 ```
+Use `<div>` to group & organize the elements:  
+```html
+<div class="container">
+  <ul>
+    <li>Sign Up</li>
+    <li>Log In</li>
+    <li>Help</li>
+  </ul>
+</div>
+```
