@@ -31,6 +31,14 @@ for(var p in hunter){
     console.log( hunter[p] );
 } // "Biscuit" 57
 ```
+`hasOwnProperty()` can be used to check if an object has a certain property.  
+```js
+var hunter = new Object();
+hunter.name = "Biscuit";
+console.log( hunter.hasOwnProperty("name") ); // true
+console.log( hunter.hasOwnProperty("job") );  // false
+```
+
 **Method**  
 A function associated with an object is called a method.  
 ```js
@@ -59,19 +67,25 @@ hunter.setAge(18);
 ```
 
 **Class prototype**  
-Suppose we have a class: 
+Suppose we have a class Dog:   
 ```js
-function Circle(radius){
-    this.radius = radius;
+function Dog(breed){
+    this.breed = breed;
 }
+// we create two objects of Dog
+var Pluto  = new Dog();
+var Snoopy = new Dog();
+// Pluto is assigned with a method called bark()
+Pluto.bark = function(){
+    console.log("Woof");
+}
+Pluto.bark();  // now Pluto can bark...
+Snoopy.bark(); // but Snoopy can't! Because only Pluto knows bark, not every Dog object
 ```
-
-
-**Other methods**  
-`hasOwnProperty()` can be used to check if an object has a certain property.  
+To mitigate this problem, use the `prototype` keyword when extending the class with new stuff:  
 ```js
-var hunter = new Object();
-hunter.name = "Biscuit";
-console.log( hunter.hasOwnProperty("name") ); // true
-console.log( hunter.hasOwnProperty("job") );  // false
+Dog.prototype.bark = fnction(){
+    console.log("Woof");
+}
+Snoopy.bark(); // now Snoopy can use bark()
 ```
