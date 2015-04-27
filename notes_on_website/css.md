@@ -1,6 +1,5 @@
 **CSS rules**  
 The following example will turn all h1 heading in html to red.  
-[Here's a list of all the color names in CSS.](http://www.crockford.com/wrrrld/color.html)
 ```css
 h1{
   color: red;
@@ -20,4 +19,20 @@ We can also target classes or specific elements in a class with CSS. The class c
 .header p{
   color: yellow;
 } /* every <p> in header is now yellow */
+```
+**Color**  
+As shown above, we can specify the color by its name. [Here's the full list of 140 colors.](http://www.crockford.com/wrrrld/color.html)  
+Or, we can specify RGB value.  
+```css
+p{
+  color: rgb(130,60,0);
+}
+```
+**Font & size**  
+```css
+h1{
+  color: red;
+  font-family: 'Shift', sans-serif;
+  font-size: 48px;
+}
 ```
