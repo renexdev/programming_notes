@@ -18,6 +18,11 @@ var age = prompt("What is your age?");
 var a = 10;
 var b = "hello";
 ```
+We can use `typeof` to find out the type of variable.  
+```js
+var x = 100;
+console.log(typeof x); // number
+```
 
 **String manipulation**
 ```js
