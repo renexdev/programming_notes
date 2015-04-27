@@ -1,5 +1,6 @@
 **CSS rules**  
 The following example will turn all h1 heading in html to red.  
+[Here's a list of all the color names in CSS.](http://www.crockford.com/wrrrld/color.html)
 ```css
 h1{
   color: red;
