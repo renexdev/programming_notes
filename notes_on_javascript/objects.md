@@ -89,3 +89,31 @@ Dog.prototype.bark = fnction(){
 }
 Snoopy.bark(); // now Snoopy can use bark()
 ```
+**Inheritance**  
+The following is an example of inheritance in JS:  
+```js
+function Animal(name, numLegs) {
+    this.name = name;
+    this.numLegs = numLegs;
+}
+Animal.prototype.sayName = function() {
+    console.log("Hi my name is " + this.name);
+};
+
+function Penguin(name){
+    this.name = name;
+    this.numLegs = 2;
+}
+Penguin.prototype = new Animal(); 
+```
+**Public & private**  
+If a variable is defined with `var` in the constructor, it's a private member.  
+```js
+function Person(name,age) {
+   this.name = name; // public data member
+   this.age = age;   // public data member 
+   var bankBalance = 7500; // private data member
+   this.getBalance = function(){ return bankBalance; } // public method
+   var  getBalance = function(){ return bankBalance; } // private method, cannot be called outside
+}
+```
