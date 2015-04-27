@@ -20,15 +20,18 @@ We can also target classes or specific elements in a class with CSS. The class c
   color: yellow;
 } /* every <p> in header is now yellow */
 ```
-**Color**  
+**Text color, font, and size**  
 As shown above, we can specify the color by its name. [Here's the full list of 140 colors.](http://www.crockford.com/wrrrld/color.html)  
-Or, we can specify RGB value.  
+Alternatively, we can specify RGB or hex value.  
 ```css
 p{
   color: rgb(130,60,0);
 }
+h2{
+  color: #0099cc; 
+}
 ```
-**Font & size**  
+As for font and size, here's an example:  
 ```css
 h1{
   color: red;
@@ -36,3 +39,17 @@ h1{
   font-size: 48px;
 }
 ```
+**Background**  
+We can customize the color or image of the background.  
+```css
+.jumbotron{
+  background-image: url('http://imgur.com/12345');
+}
+```
+**Border**
+```css
+.jumbotron h1 {
+  border: 3px solid #cc0000;
+}
+```
+The example above set the size, line style, and color of the border around the header.  
