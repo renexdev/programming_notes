@@ -46,10 +46,16 @@ We can customize the color or image of the background.
   background-image: url('http://imgur.com/12345');
 }
 ```
-**Border**
+**Border, padding & margin**  
+Border is a rectangle around an element. We set the size, line style, and color of the border below.  
+Padding is the space between contents and borders; increase it to enhance readability.  
+Margin is the space outside border.  
+All of these can be specified by either the whole thing (ex. padding) or four sides (ex. padding-top, padding-left).  
 ```css
 .jumbotron h1 {
+  padding: 23px;
   border: 3px solid #cc0000;
+  margin-top: 10px;
+  margin-left: 23px;
 }
 ```
-The example above set the size, line style, and color of the border around the header.  
