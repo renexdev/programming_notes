@@ -1,4 +1,4 @@
-**CSS rules**  
+###**CSS rules**  
 The following example will turn all h1 heading in html to red.  
 ```css
 h1{
@@ -20,6 +20,7 @@ We can also target classes or specific elements in a class with CSS. The class c
   color: yellow;
 } /* every <p> in header is now yellow */
 ```
+###**Element style**  
 **Text color, font, and size**  
 As shown above, we can specify the color by its name. [Here's the full list of 140 colors.](http://www.crockford.com/wrrrld/color.html)  
 Alternatively, we can specify RGB or hex value.  
@@ -69,4 +70,14 @@ We can also use `auto` on margins to push elements to either sides or center.
   margin-right: auto;
   margin-left: auto;
 } /* this will set the header to center */
+```
+
+###**Page layout**  
+Besides controlling how elements look, CSS can also control where an element sits on a page.  
+**Display mode**  
+CSS treats HTML elements as boxes. A box can be "block" or "inline".  
+```css
+.nav li {
+  display: inline;
+} /* this will set the list to be a single line */
 ```
