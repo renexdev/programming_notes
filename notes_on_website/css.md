@@ -13,10 +13,10 @@ We can also target classes or specific elements in a class with CSS. The class c
 </div>
 ```
 ```css
-.header{
+.header {
   color: blue;
 } /* everything in header is now blue */
-.header p{
+.header p {
   color: yellow;
 } /* every <p> in header is now yellow */
 ```
@@ -25,16 +25,16 @@ We can also target classes or specific elements in a class with CSS. The class c
 As shown above, we can specify the color by its name. [Here's the full list of 140 colors.](http://www.crockford.com/wrrrld/color.html)  
 Alternatively, we can specify RGB or hex value.  
 ```css
-p{
+p {
   color: rgb(130,60,0);
 }
-h2{
+h2 {
   color: #0099cc; 
 }
 ```
 As for font and size, here's an example:  
 ```css
-h1{
+h1 {
   color: red;
   font-family: 'Shift', sans-serif;
   font-size: 48px;
@@ -43,7 +43,7 @@ h1{
 **Background**  
 We can customize the color or image of the background.  
 ```css
-.jumbotron{
+.jumbotron {
   background-image: url('http://imgur.com/12345');
 }
 ```
@@ -74,10 +74,26 @@ We can also use `auto` on margins to push elements to either sides or center.
 
 ###**Page layout**  
 Besides controlling how elements look, CSS can also control where an element sits on a page.  
+  
 **Display mode**  
 CSS treats HTML elements as boxes. A box can be "block" or "inline".  
 ```css
 .nav li {
   display: inline;
 } /* this will set the list to be a single line */
+```
+**Position**  
+By setting the position to be "relative", we can use "top", "left", etc., to position the elements.  
+```css
+.jumbotron h1 {
+  position: relative;
+  top: 91px;
+  left: 55px;
+}
+```
+We can also use float to pull the elements to either far left or far right.  
+```css
+img {
+  float: right;
+}
 ```
