@@ -30,9 +30,14 @@ Use `<ul>` to describe a bulleted list. Every item in the list comes with `<li>`
 **Structure of a web page**  
 Everything inside a website is inside `<html>`.  
 `doctype` tells the browser the version of HTML. It's not part of HTML, so no need to close it.  
+You can specify the CSS file in `<head>`.  
+The contents of the web page are in `<body>`.  
 ```html
 <!DOCTYPE html>
 <html>
+  <head>
+    <link href="main.css" rel="stylesheet"/>
+  </head>
   <body>
     <h1>Bible</h1>
     <p>In the beginning...</p>
