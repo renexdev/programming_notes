@@ -59,3 +59,14 @@ All of these can be specified by either the whole thing (ex. padding) or four si
   margin-left: 23px;
 }
 ```
+We can also use `auto` on margins to push elements to either sides or center.  
+```css
+.jumbotron h1 {
+  margin-right: auto;
+} /* this will set the header to left (maximize the right margin) */
+
+.jumbotron h1 {
+  margin-right: auto;
+  margin-left: auto;
+} /* this will set the header to center */
+```
