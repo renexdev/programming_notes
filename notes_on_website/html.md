@@ -55,3 +55,5 @@ Use `<div>` to group & organize the elements:
   </ul>
 </div>
 ```
+**Class & ID**  
+See [here](https://css-tricks.com/the-difference-between-id-and-class/) for more details.
