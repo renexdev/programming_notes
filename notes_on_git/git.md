@@ -19,11 +19,14 @@ git config --global color.ui auto
 A good rule of thumb is to make *one commit per logical change*.  
 For example, if you fixed a typo, then fixed a bug in a separate part of the file, you should use one commit for each change since they are logically separate.
 
-####**Checkout a previous commit**
+####**detached HEAD state**  
+We can checkout an old ID for debugging.  
 ```bash
 git checkout <commit ID>
 ```
-We can use this for debugging.
+Note that by doing this, we'll go into the "detached HEAD" status. There're 2 options from now on:  
+1. Create a branch from here.  
+2. Fool around and switch back to the previous branch.  
 
 ####**Check the status of git**  
 ```bash
