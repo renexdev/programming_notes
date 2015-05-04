@@ -57,7 +57,7 @@ BTW, if there's only one processor, you have to use serial scan.
 Histogram is distributing n items into b bins. A naive parallel approach is having n threads running at the same time.  
 This obviously will not work because of data race. (2 threads trying to increment a bin with 5 will result in a pair of 6 being poured into it, not 7)  
 
-#### Histogram with Atomic Operations  
+####**Histogram with Atomic Operations**  
 Naurally, one way to solve this is using atomic operations to ensure that only one thread is reading/writing a bin at a time. 
 ```cpp
 __global__ void simple_histo(int *d_bins, const int *d_in, const int BIN_COUNT){
@@ -67,3 +67,12 @@ __global__ void simple_histo(int *d_bins, const int *d_in, const int BIN_COUNT){
   atomicAdd(&(d_bins[myBin]), 1);
 }
 ```
+The drawback of this approach this that atomic operations serialize the read/write operations a lot, so the fewer bins there are, the less efficient it is. Imagine if there are 1000 bins vs 100 bins. In the former cases, there can be at most 1000 threads accessing bins at the same time, while only 100 threads in the latter case.  
+In general, an algorithm relying on atomic operations will limit its parallelism, and thus its scalability. No matter how many threads your GPU is capable of running at the same time, you're limited to, in this case, the number of bins.  
+
+####**Local Histogram Then Reduce**  
+Here's a more efficient approach: if there're 128 items, 8 threads and 3 bins, we can divide the items into 8 groups, and let each thread take care of 16 items. Each item will maintain its own "local" 3-bin histogram. Once all threads are done with their binning, we reduce all 8 local histograms.  
+There's no need for atomic operations, since each thread computes its local histogram serially.  
+
+####**Sort Then Reduce By Key**  
+Finally, we can first sort each item by its bin number, then perform reduce one bin number at a time. More on this later.  
