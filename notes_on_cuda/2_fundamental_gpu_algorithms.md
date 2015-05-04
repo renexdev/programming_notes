@@ -1,8 +1,9 @@
-####**Steps & Work**  
+####**0. Steps & Work**  
 When we talk abour algorithms, we deal with 2 costs: **step complexity** & **work complexity**.  
 A parallel program is considered *efficient* (compared with serial implementation) if step complexity is reduced, while the overall work complexity is relatively the same.  
+In this section, we would go over three fundamental GPU algorithms: reduce, scan, and histogram.  
 
-####**Reduce**  
+####**1. Reduce**  
 Any operation(reduce, scan, etc.) has 2 inputs: **an input array** and an **operator**.  
 For example, Reduce[(1,2,3,4),'+']=10. (1,2,3,4) is the array, and '+' is the operator.   
 The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `min(a,b)` are ok, but `pow(a,b)`, `a/b` are not.)  
@@ -13,7 +14,7 @@ The operator has to be both **binary** & **associative**. (So `a+b`, `a||b`, `mi
 See `reduce.cu` for the code snippets of reducing with globabl or shared memory.  
 In the above example, reducing with global memory uses 3 times more memory than the shared version.  
 
-####**Scan**  
+####**2. Scan**  
 Here's an example of scan: Scan[(1,2,3,4),'+']=(1,3,6,10).(cumulative sum)  
 Though not obvious, it's very useful in parallel.  
 There're 2 kinds of scan: *exclusive* & *inclusive*.  
@@ -52,3 +53,17 @@ If there're **more work than processors**, pick the work effcient scan. (**Blell
 If there're **more processors than work**, pick the step efficient scan. (**H/S**)  
 BTW, if there's only one processor, you have to use serial scan.  
 
+####**3. Histogram**  
+Histogram is distributing n items into b bins. A naive parallel approach is having n threads running at the same time.  
+This obviously will not work because of data race. (2 threads trying to increment a bin with 5 will result in a pair of 6 being poured into it, not 7)  
+
+#### Histogram with Atomic Operations  
+Naurally, one way to solve this is using atomic operations to ensure that only one thread is reading/writing a bin at a time. 
+```cpp
+__global__ void simple_histo(int *d_bins, const int *d_in, const int BIN_COUNT){
+  int myID = threadIdx.x + blockDim.x * blockIdx.x;
+  int myItem = d_in[myId];
+  int myBin = myItem % BIN_COUNT;
+  atomicAdd(&(d_bins[myBin]), 1);
+}
+```
