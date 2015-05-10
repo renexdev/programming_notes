@@ -146,7 +146,38 @@ void compute_histogram(const float* const d_logLuminance,
   atomicAdd(&(d_cdf[myBin]), 1);
 }
 
+__global__
+void compute_cdf_1(unsigned int* const d_cdf,
+                 unsigned int numBins) {
 
+  int myId = threadIdx.x;// + blockDim.x * blockIdx.x;
+
+  // First, perform a (+)-reduce
+  for(int d = 1; d < numBins; d *= 2) {
+    if((myId+1) % (d*2) == 0) d_cdf[myId] += d_cdf[myId - d];
+    __syncthreads();
+  }
+  
+  // Next, clear the last element
+  if(myId == (numBins-1)) d_cdf[myId] = 0;
+}
+
+__global__
+void compute_cdf_2(unsigned int* const d_cdf,
+                 unsigned int numBins) {
+
+  int myId = threadIdx.x;// + blockDim.x * blockIdx.x;
+
+  // Finally, perform the down sweep
+  for(int d = numBins/2; d >= 1; d /= 2) {
+    if((myId+1) % (d*2) == 0){
+      int temp = d_cdf[myId - d];
+      d_cdf[myId - d] = d_cdf[myId];
+      d_cdf[myId] += temp;
+    }
+    __syncthreads();
+  }
+}
 
 void your_histogram_and_prefixsum(const float* const d_logLuminance,
                                   unsigned int* const d_cdf,
@@ -195,5 +226,10 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
 
   // Compute the histogram and store it in d_cdf
   compute_histogram<<<gridSize, blockSize>>>(d_logLuminance, d_cdf, lumRange, min_logLum, max_logLum,numBins);
-    
+
+  // Compute cdf
+  // Speparated into 2 functions because something always goes wrong when
+  // they are combined. Need further investigation.
+  compute_cdf_1<<<1, numBins>>>(d_cdf, numBins);
+  compute_cdf_2<<<1, numBins>>>(d_cdf, numBins);
 }
