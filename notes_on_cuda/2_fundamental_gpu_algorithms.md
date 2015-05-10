@@ -1,5 +1,5 @@
 ####**0. Steps & Work**  
-When we talk abour algorithms, we deal with 2 costs: **step complexity** & **work complexity**.  
+When we talk about algorithms, we deal with 2 costs: **step complexity** & **work complexity**.  
 A parallel program is considered *efficient* (compared with serial implementation) if step complexity is reduced, while the overall work complexity is relatively the same.  
 In this section, we would go over three fundamental GPU algorithms: reduce, scan, and histogram.  
 
