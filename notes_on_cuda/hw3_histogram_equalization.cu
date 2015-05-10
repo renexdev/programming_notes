@@ -128,6 +128,24 @@ void find_max(float* d_in,
   // The output is d_in[0]
 }
 
+__global__
+void compute_histogram(const float* const d_logLuminance, 
+                       unsigned int* const d_cdf, 
+                       float lumRange, 
+                       float min_logLum, 
+                       float max_logLum,
+                       unsigned int numBins) {
+  int myId = threadIdx.x + blockDim.x * blockIdx.x;
+
+  // Compute the bin (0 ~ numBins-1)
+  // max_logLum will be numBins, so subtract one from the result
+  int myBin = static_cast<int>(floor((d_logLuminance[myId] - min_logLum) / lumRange * numBins));
+  if(myBin == numBins) myBin--;
+
+  // Add to the histogram
+  atomicAdd(&(d_cdf[myBin]), 1);
+}
+
 
 
 void your_histogram_and_prefixsum(const float* const d_logLuminance,
@@ -148,8 +166,8 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
        the cumulative distribution of luminance values (this should go in the
        incoming d_cdf pointer which already has been allocated for you)       */
     
-  const dim3 blockSize(numCols, 1, 1);  //TODO
-  const dim3 gridSize( numRows, 1, 1);  //TODO
+  const dim3 blockSize(numCols, 1, 1);
+  const dim3 gridSize( numRows, 1, 1);
 
   const int logLumSize = numCols * numRows * sizeof(float);
   float* d_logLumCopy;
@@ -167,5 +185,21 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
   find_max<<<gridSize, blockSize>>>(d_logLumCopy, numRows, numCols);
   cudaMemcpy(h_logLumCopy, d_logLumCopy, logLumSize, cudaMemcpyDeviceToHost);
   max_logLum = h_logLumCopy[0];
+
+  // Calculate the range
+  float lumRange = max_logLum - min_logLum;
+
+  // Make sure d_cdf is 0,0,0,0,0....
+  const int cdfSize = numBins * sizeof(unsigned int);
+  cudaMemset(d_cdf, 0, cdfSize);
+
+  // Compute the histogram and store it in d_cdf
+  compute_histogram<<<gridSize, blockSize>>>(d_logLuminance, d_cdf, lumRange, min_logLum, max_logLum,numBins);
+
+  // temp check
+  // float h_cdf[cdfSize];
+  // cudaMemcpy(h_cdf, d_cdf, cdfSize, cudaMemcpyDeviceToHost);
+  // std::cout << h_cdf[0] << std::endl;
+  
     
 }
