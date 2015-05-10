@@ -195,11 +195,5 @@ void your_histogram_and_prefixsum(const float* const d_logLuminance,
 
   // Compute the histogram and store it in d_cdf
   compute_histogram<<<gridSize, blockSize>>>(d_logLuminance, d_cdf, lumRange, min_logLum, max_logLum,numBins);
-
-  // temp check
-  // float h_cdf[cdfSize];
-  // cudaMemcpy(h_cdf, d_cdf, cdfSize, cudaMemcpyDeviceToHost);
-  // std::cout << h_cdf[0] << std::endl;
-  
     
 }
