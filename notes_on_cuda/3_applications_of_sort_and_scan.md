@@ -15,3 +15,11 @@ If we convert T & F into 1 & 0, predicate would look like this: 1, 0, 0, 1, 1, 0
 And it turns out that compacting be done with exclusive scan on this array: 0, 1, 1, 1, 2, 3, 3, 4  
 (We don't care about the results of items with false predicates)  
 
+If we're to compact 1 to 1,000,000 with the follow 2 separate predicates:  
+A. Divisible by 17 (This will remove a bunch of numbers)  
+B. Not divisible by 31 (This one won't)  
+Time for predicating: A = B  
+Time for scanning: A = B  
+**Time for scattering: A < B**  
+
+In a more generalized form of compacting, the predicate results might be numbers rather than simple T/F. In that case, we can also use scan to produce the scatter addresses.  
