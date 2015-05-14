@@ -48,4 +48,5 @@ B_gathered = [x z | x y z | y]
 mul = [ax bz | cx dy ez | fy]  
 4. Finally, perform segmented scan on it!  
 
-
+####**Sorting**  
+Sorting algorithms are tricky for parallelism, since most of them are serial algorithms.  
