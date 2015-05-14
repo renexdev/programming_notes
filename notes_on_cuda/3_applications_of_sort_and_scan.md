@@ -41,7 +41,7 @@ A = [ a 0 b; c d e; 0 0 f]
 With sparse matrices, we can perform matrix multiplication more efficiently.  
 Say we want to multiply A * B, where B is [x;y;z].  
 1. Create segmented representation from **Value** and **RowPtr**.  
-A_sparse = [a b | c d e | f]
+A_sparse = [a b | c d e | f]  
 2. Gather vector values using **Column**. For example, b is to be multiplied with z, which can be found out using **Column**.  
 B_gathered = [x z | x y z | y]  
 3. Compute pairwise multiplication (with map).  
