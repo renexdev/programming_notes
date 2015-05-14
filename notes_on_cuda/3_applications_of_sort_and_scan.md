@@ -33,6 +33,6 @@ Why is this useful and how is this done? The following will provide 2 examples.
 ##**Sparse Matrix**##  
 This is how we represent a sparse matrix A (mostly with lots of zeros):    
 A = [ a 0 b; c d e; 0 0 f]  
-**Value**: [a b c d e f] (list out all non-zero values)  
-**Column**: [0 2 0 1 2 1] (column index of all non-zero values)  
-**RowPtr**: [0 2 5] (rows start at a, c, f, and their indices in **Value** are stored here)  
+**Value**: [a b c d e f] <-(list out all non-zero values)  
+**Column**: [0 2 0 1 2 1] <-(column index of all non-zero values)  
+**RowPtr**: [0 2 5] <-(rows start at a, c, f, and their indices in **Value** are stored here)  
