@@ -30,9 +30,22 @@ Sometimes, we want to perform multiple small scans instead of one large scan. Si
 **Output (exclusive)**: 0 1 | 0 3 7 | 0 6 13  
 Why is this useful and how is this done? The following will provide 2 examples.  
 
-##**Sparse Matrix**##  
+####**Sparse Matrix** 
 This is how we represent a sparse matrix A (mostly with lots of zeros):    
 A = [ a 0 b; c d e; 0 0 f]  
 **Value**: [a b c d e f] <-(list out all non-zero values)  
 **Column**: [0 2 0 1 2 1] <-(column index of all non-zero values)  
 **RowPtr**: [0 2 5] <-(rows start at a, c, f, and their indices in **Value** are stored here)  
+
+####**Spare Matrix/Dense Vector Multiplication (SpMv)**  
+With sparse matrices, we can perform matrix multiplication more efficiently.  
+Say we want to multiply A * B, where B is [x;y;z].  
+1. Create segmented representation from **Value** and **RowPtr**.  
+A_sparse = [a b | c d e | f]
+2. Gather vector values using **Column**. For example, b is to be multiplied with z, which can be found out using **Column**.  
+B_gathered = [x z | x y z | y]  
+3. Compute pairwise multiplication (with map).  
+mul = [a*x b*z | c*x d*y e*z | f*y]  
+4. Finally, perform segmented scan on it!  
+
+
