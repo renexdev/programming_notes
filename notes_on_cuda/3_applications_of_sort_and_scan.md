@@ -23,3 +23,16 @@ Time for scanning: A = B
 **Time for scattering: A < B**  
 
 In a more generalized form of compacting, the predicate results might be numbers rather than simple T/F. In that case, we can also use scan to produce the scatter addresses.  
+
+####**Segmented Scan**  
+Sometimes, we want to perform multiple small scans instead of one large scan. Since using one kernel for each small scan is too wasteful, what we could do instead is comcatenating all small segments into one large array, and perform a special scan call "segmented scan" on it. For example:  
+**Input**: 1 2 | 3 4 5 | 6 7 8  
+**Output (exclusive)**: 0 1 | 0 3 7 | 0 6 13  
+Why is this useful and how is this done? The following will provide 2 examples.  
+
+##**Sparse Matrix**##  
+This is how we represent a sparse matrix A (mostly with lots of zeros):    
+A = [ a 0 b; c d e; 0 0 f]  
+**Value**: [a b c d e f] (list out all non-zero values)  
+**Column**: [0 2 0 1 2 1] (column index of all non-zero values)  
+**RowPtr**: [0 2 5] (rows start at a, c, f, and their indices in **Value** are stored here)  
