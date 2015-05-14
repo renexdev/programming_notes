@@ -45,7 +45,7 @@ A_sparse = [a b | c d e | f]
 2. Gather vector values using **Column**. For example, b is to be multiplied with z, which can be found out using **Column**.  
 B_gathered = [x z | x y z | y]  
 3. Compute pairwise multiplication (with map).  
-mul = [a*x b*z | c*x d*y e*z | f*y]  
+mul = [ax bz | cx dy ez | fy]  
 4. Finally, perform segmented scan on it!  
 
 
