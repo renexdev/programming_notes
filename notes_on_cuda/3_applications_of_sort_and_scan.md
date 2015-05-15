@@ -62,3 +62,6 @@ For example, index_own of 15 is 2, and index_other should be 3. 2+3=5, which is 
 index_own is self-explanatory; as for index_other, we can use **binary search** to find it in the other list.  
 This way, every element is assigned a thread, and every thread performs binary search on the other list, computing the final index.  
 
+####**Bitonic Sort**  
+This is an "oblivious" (does the exact same thing regardless of inputs) sorting algorithm that is designed for parallel architecture. [See the wiki page for more details.] (https://www.wikiwand.com/en/Bitonic_sorter)  
+This algorithm will take exactly the same amount of time no matter the input.  
