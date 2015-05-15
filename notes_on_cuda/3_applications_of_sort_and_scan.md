@@ -50,3 +50,15 @@ mul = [ax bz | cx dy ez | fy]
 
 ####**Sorting**  
 Sorting algorithms are tricky for parallelism, since most of them are serial algorithms.  
+Here we're gonna make merge sort parallel.  
+The merge part can be parallelized; say we want to merge these 2 lists:  
+**List 1**: 1, 3, 12, 28  
+**List 2**: 2, 10, 15, 21
+Since merging them into one list is simply finding out their index in the merged list, this is the results we're looking for:  
+**List 1**: 1, 3, 12, 28 -> [0, 2, 4, 7]  
+**List 2**: 2, 10, 15, 21 -> [1, 3, 5, 6]  
+But how do we find out the index of an element, say, x? It turns out we simply have to find **index_own**(index of x in its own list), and **index_other**(index of where should be in the other list), and sum them up.  
+For example, index_own of 15 is 2, and index_other should be 3. 2+3=5, which is the index of 15 in the merged list!  
+index_own is self-explanatory; as for index_other, we can use **binary search** to find it in the other list.  
+This way, every element is assigned a thread, and every thread performs binary search on the other list, computing the final index.  
+
