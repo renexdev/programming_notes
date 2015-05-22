@@ -65,3 +65,14 @@ This way, every element is assigned a thread, and every thread performs binary s
 ####**Bitonic Sort**  
 This is an "oblivious" (does the exact same thing regardless of inputs) sorting algorithm that is designed for parallel architecture. [See the wiki page for more details.] (https://www.wikiwand.com/en/Bitonic_sorter)  
 This algorithm will take exactly the same amount of time no matter the input.  
+
+####**Radix Sort**  
+Radix sort is done by re-ordering the elements one bit at a time. For example, we want to sort:  
+**Input**: 4, 1, 6, 5, 0, 3, 2, 7  
+**Input(binary)**: 100, 001, 110, 101, 000, 011, 010, 111  
+**Sort the 1st bit**: 100, 110, 000, 010, 001, 101, 011, 111   
+**Sort the 2nd bit**: 100, 000, 001, 101, 110, 010, 011, 111  
+**Sort the 3rd bit**: 000, 001, 010, 011, 100, 101, 110, 111  
+You'll notice that each sorting is **compacting** w.r.t. each bit, which is ideal for parallelism.  
+Complexity of radix sort is O(kn), where k is the number of bits, and n is the number of inputs.  
+
