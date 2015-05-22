@@ -49,7 +49,9 @@ mul = [ax bz | cx dy ez | fy]
 4. Finally, perform segmented scan on it!  
 
 ####**Sorting**  
-Sorting algorithms are tricky for parallelism, since most of them are serial algorithms.  
+Sorting algorithms are tricky for parallelism, since most of them are serial algorithms. Nonetheless, it can be done with some clever design.  
+
+####**Merge Sort**
 Here we're gonna make merge sort parallel.  
 The merge part can be parallelized; say we want to merge these 2 lists:  
 **List 1**: 1, 3, 12, 28  
