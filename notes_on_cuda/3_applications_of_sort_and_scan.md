@@ -78,3 +78,5 @@ Radix sort is done by re-ordering the elements one bit at a time. For example, w
 You'll notice that each sorting is **compacting** w.r.t. each bit, which is ideal for parallelism.  
 Complexity of radix sort is O(kn), where k is the number of bits, and n is the number of inputs.  
 
+####**Quick Sort**  
+Quick sort relies on recursion; although CUDA starts supporting recursion recently, it's a challenging task to implement efficient recursive algorithms on a GPU.  
