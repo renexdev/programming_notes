@@ -32,7 +32,7 @@ int main(){
     // Output will be 5 5
 
     x = 10;
-    hero1.setA(&x);
+    hero1.setHP(&x);
     
     hero1.print();
     hero2.print();
