@@ -44,7 +44,6 @@ $(document).ready(function() {
 });
 ```
 
-
 **Selecting by id**  
 ```html
 <body>
@@ -57,3 +56,22 @@ $(document).ready(function() {
 });
 ```
 For an id, put a `#` in front of class name.  
+
+**"this" keyword**  
+```js
+$(document).ready(function() {
+  $('div').click(function() {
+    $('div').fadeOut('slow');
+  });
+});
+```
+In the example above, if we click on a `div` object, all the `div` objects will fade out, but that's not necessarily what we want.  
+If we only want to fade out the `div` object being clicked, we can use `this` keyword inside.  
+```js
+$(document).ready(function() {
+  $('div').click(function() {
+    $(this).fadeOut('slow');
+  });
+});
+```
+Any event handler such as `click()` and `mouseenter()`, will recognize `this`.
