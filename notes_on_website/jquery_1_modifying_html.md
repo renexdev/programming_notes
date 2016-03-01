@@ -1,4 +1,4 @@
-### Modifyint HTML structure  
+### Modifying HTML structure  
 **Insert element inside something**
 ```js
 $(document).ready(function () {
@@ -26,5 +26,17 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('.container').empty();  // this will clear the contents inside it
   $('.container').remove(); // this will delete the element completely
+});
+```
+
+### Modifying class & contents  
+```js
+$(document).ready(function () {
+  $('#text1').click(function () {
+    $(this).addClass('class1');
+  });
+  $('#text2').click(function () {
+    $(this).removeClass('class2');
+  });
 });
 ```
