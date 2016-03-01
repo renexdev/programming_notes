@@ -30,6 +30,7 @@ $(document).ready(function () {
 ```
 
 ### Modifying class & contents  
+**Adding/removing class**
 ```js
 $(document).ready(function () {
   $('#text1').click(function () {
